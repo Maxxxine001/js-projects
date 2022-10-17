@@ -1,0 +1,32 @@
+.sidebar {
+    background-color: white;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color:rgb(192, 192, 192);
+    position: fixed;
+    top: 100px;
+    left: 0;
+    bottom: 0;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    flex-shrink: 0;
+
+
+}
+
+.sidebar-button {
+    width: 40px;
+    padding-left: 40px;
+    
+}
+
+.sidebar-button-description {
+    font-family: Roboto, Arial;
+    text-align: center;
+    font-size: 16px;
+}
+

@@ -3,14 +3,52 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <h1>Blackjack</h1>
-
         
-        <p id="message-el">Want to play a round?</p>
-        <p id="cards-el"></p>
-        <p id="sum-el"></p>
-        <button onclick="startRound()" id="start-button">Start Round</button>
-        <button onclick="newCard()" id="new-card-button" disabled >New Card</button>
-        <script src="index.js"></script>
+            
+            <h1>Blackjack</h1>
+
+            <div class="textMessages">
+                <div >
+                    <p id="message-el">Want to play a round?</p>
+                    <p id="cards-el"></p>
+                    <p id="sum-el"></p>
+                </div>
+                <div>
+                    <p id="casino-cards-el"></p>
+                    <p id="casino-sum-el"></p>
+                </div>
+            </div>
+            
+            <div class="board">
+
+                <div class="betsBoard">
+                </div>
+                
+                <div class="cardsBoard" >
+
+                    <div class="casinoCards" id="casino-cards">
+                        
+                    </div>
+            
+                    <div class="playerCards" id="player-cards">
+                        
+                    </div>
+
+                </div>
+
+                <div class="scoreBoard">
+                </div>
+
+            </div>
+    
+            <div class="buttons">
+    
+                <button onclick="startRound(), showCards()" id="start-button">Start Round</button>
+                <button onclick="newCard(), showCards()" id="new-card-button" disabled >New Card</button>
+            </div>
+            <script src="index.js"></script>
+            
+        
+
     </body>
 </html>

@@ -9,34 +9,37 @@
 
             <div class="textMessages">
                 <div >
-                    <p id="message-el">Want to play a round?</p>
-                    <p id="cards-el"></p>
-                    <p id="sum-el"></p>
+                   <p id="message-el">Want to play a round?</p> 
+                    <p id="casino-sum-el"></p>
+                    <p id="casino-cards-el"></p>
+                    
                 </div>
                 <div>
-                    <p id="casino-cards-el"></p>
-                    <p id="casino-sum-el"></p>
+                    
+                    <p id="sum-el"></p>
+                    <p id="cards-el"></p>
+                    
                 </div>
             </div>
             
             <div class="board">
 
                 <div class="betsBoard">
+                    <p id="player-cash-amount"></p>
                 </div>
-                
+                    
                 <div class="cardsBoard" >
 
-                    <div class="casinoCards" id="casino-cards">
-                        
+                    <div class="cards casino" id="casino-cards" >
                     </div>
             
-                    <div class="playerCards" id="player-cards">
-                        
+                    <div class="cards" id="player-cards">
                     </div>
 
                 </div>
 
                 <div class="scoreBoard">
+                    <p class="scoreCount">Casino Player</p>
                 </div>
 
             </div>
@@ -44,7 +47,10 @@
             <div class="buttons">
     
                 <button onclick="startRound(), showCards()" id="start-button">Start Round</button>
-                <button onclick="newCard(), showCards()" id="new-card-button" disabled >New Card</button>
+                <button onclick="newCard(), showCards()" id="new-card-button" disabled >Hit</button>
+                <button onclick="stand()" id="stand-button" disabled>Stand</button>
+                <button onclick="surrender()" id="surrender-button" disabled>Surrender</button>
+
             </div>
             <script src="index.js"></script>
             

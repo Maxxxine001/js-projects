@@ -28,8 +28,9 @@
                     <p id="player-cash-amount"> </p>
                     <p>How much would you like to bet ?</p>
                     <input type="number" class="betInput" id="bet-amount" > <!--onfocusout="betAmountCheck();"-->
-                    <button onclick="bet()" id="bet-button" style="height: 50px; width: 150px;" disabled>BET</button>
+                    <button onclick="bet()" id="bet-button" style="height: 50px; width: 150px;" enabled>BET</button>
                     <p id="player-bet" > Current Bet : </p>
+                    <p id="after-game-message">.</p>
                 </div>
                     
                 <div class="cardsBoard" >
@@ -43,7 +44,8 @@
                 </div>
 
                 <div class="scoreBoard">
-                    <p class="scoreCount">Casino / Player</p>
+                    <p>Score Board</p>
+                    <p class="scoreCount" id="score-board"></p>
                 </div>
 
             </div>
@@ -51,9 +53,10 @@
             <div class="buttons">
     
                 <button onclick="startRound()" id="start-button">Start Round</button>
-                <button onclick="newCard(), showCards()" id="new-card-button" disabled >Hit</button>
+                <button onclick="newCard()" id="new-card-button" disabled >Hit</button>
                 <button onclick="stand()" id="stand-button" disabled>Stand</button>
                 <button onclick="surrender()" id="surrender-button" disabled>Surrender</button>
+                <!--<button onclick="betResults()" id="betResults-button" >Show Results</button>-->
 
             </div>
             <script src="index.js"></script>

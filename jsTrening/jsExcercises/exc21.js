@@ -17,27 +17,38 @@
     if(list2 == null)
         return list1
 
-    let ret = {val: 0, next: null}
-    let curr = ret
+    let ret = null
+    let tmp = null
 
     if(list1.val < list2.val) {
-        ret.val = list1.val
+        tmp = list1
         list1 = list1.next
+        ret = tmp
+        ret.next = null
     } else {
-        ret.val = list2.val
+        tmp = list2
         list2 = list2.next
+        ret = tmp
+        ret.next = null
     }
+
+
+    let curr = ret
 
     while(list1 != null && list2 != null) {
         if(list1.val < list2.val) {
-            curr.next = {val: list1.val, next: null}
-            curr = curr.next
+            tmp = list1
             list1 = list1.next
-        } else {
-            curr.next = {val: list2.val, next: null}
+            curr.next = tmp
             curr = curr.next
+            tmp.next = null
+        } else {
+            tmp = list2
             list2 = list2.next
-        }
+            curr.next = tmp
+            curr = curr.next
+            tmp.next = null
+
     }
 
     if(list1 != null) {

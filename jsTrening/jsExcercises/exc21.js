@@ -48,7 +48,7 @@
             curr.next = tmp
             curr = curr.next
             tmp.next = null
-
+        }
     }
 
     if(list1 != null) {
@@ -58,5 +58,5 @@
     }
 
 
-    return ret;
-};
+    return ret
+}

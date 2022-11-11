@@ -1,0 +1,52 @@
+
+@font-face {
+    font-family: 'AsianTitleFont';
+    src: ('') format('ttf');
+  }
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+}
+.title {
+    font-family: 'AsianTitleFont';
+    font-size: 40px;
+}
+
+.menuButtons {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.difButton {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 15px;
+    border-style: none;
+    border-width: 1px;
+}
+
+.buttonEasy {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(219,234,141,1) 0%, rgba(0,212,255,1) 100%);
+    
+
+}
+
+.buttonMedium {
+    
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(234,169,141,1) 0%, rgba(159,183,178,1) 100%, rgba(0,212,255,1) 100%);
+}
+
+.buttonHard {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(234,169,141,1) 0%, rgba(182,45,45,0.9920343137254902) 58%);
+}

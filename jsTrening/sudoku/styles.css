@@ -1,9 +1,4 @@
 
-@font-face {
-    font-family: 'AsianTitleFont';
-    src: ('') format('ttf');
-  }
-
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
     font-weight: bold;
@@ -11,7 +6,7 @@ body {
     font-size: 20px;
 }
 .title {
-    font-family: 'AsianTitleFont';
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
     font-size: 40px;
 }
 
@@ -34,19 +29,39 @@ body {
 }
 
 .buttonEasy {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(219,234,141,1) 0%, rgba(0,212,255,1) 100%);
-    
-
+    background: hsl(25.38, 65.82%, 69.02%);
 }
 
 .buttonMedium {
-    
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(234,169,141,1) 0%, rgba(159,183,178,1) 100%, rgba(0,212,255,1) 100%);
+    background: hsl(22.39, 40.12%, 67.25%);
 }
 
 .buttonHard {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(234,169,141,1) 0%, rgba(182,45,45,0.9920343137254902) 58%);
+    background: hsl(215.38, 19.02%, 59.8%);
+}
+
+.gameBoard{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    
+}
+.table {
+    border: solid;
+    border-color: black;
+    border-width: 2px; 
+}
+
+.cellBox {
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.cell {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(184, 177, 177);
+    height: 60px;
+    width: 60px;
 }

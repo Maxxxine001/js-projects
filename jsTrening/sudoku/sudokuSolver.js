@@ -3,8 +3,49 @@
 // Sudoku is in format list[9][9]  so list[x][y] will get you an element on x-th row and y-th collumn.
 // Every element contains number from 1 to 9 if the value is known, or 0 if isn't.
 
-function getResult(sudoku) {
 
+function printSudoku(sudoku) {
+    console.log()
+    for(let i = 0; i < 9; i++) {
+        let s = ''
+        for(let j = 0; j < 9; j++) {
+            s += sudoku[i][j] + ' '
+        }
+        console.log(s)
+    }
+    console.log()
+}
+
+function getSudokuCopy(sudoku) {
+    const copy = []
+    for(let i = 0; i < 9; i++) {
+        const tmp = []
+        for(let j = 0; j < 9; j++) {
+            tmp.push(sudoku[i][j])
+        }
+        copy.push(tmp)
+    }
+    return copy
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+
+
+function getFirstEmptyIndex(sudoku) {
+    for( let i = 0; i < 9; i++){
+        for( let j = 0; j < 9; j++ ){
+            if( sudoku[i][j] == 0 ){
+                return [i, j]
+            } 
+        }
+    }
+    return null
 }
 
 function isSudokuValid(sudoku){
@@ -23,6 +64,7 @@ function isSudokuValid(sudoku){
     }
 
     for( let i = 0; i < sudoku.length; i++){
+        s.clear()
         for( let j = 0; j < sudoku.length; j++){
             if(sudoku[j][i] == 0) {
                 continue
@@ -34,15 +76,18 @@ function isSudokuValid(sudoku){
         }
     }
 
-    for(let x = 0; x < 9; x += 3) { 
-        for(let y = 0; y < 9; x += 3) {
-            s.clear()
-            for(let xDiff = 0; xDiff < 3; xDiff++) {
-                for(let yDiff = 0; yDiff < 3; yDiff++) {
-                    
-                }
-            }
 
+    for(let i = 0; i < 9; i++) {
+        s.clear()
+        for(let j = 0; j < 9; j++) {
+            let currValue = sudoku[Math.floor(i/3) * 3 + Math.floor(j/3)][ i % 3 * 3 + j % 3]
+            if(currValue == 0) {
+                continue
+            }
+            if(s.has(currValue)) {
+                return false
+            }
+            s.add(currValue)
         }
     }
 
@@ -89,4 +134,16 @@ let sudoku = [
     [9, 0, 1, 0, 0, 0, 0, 0, 2]
 ]
 
-console.log(isSudokuValid(sudoku))
+const emptySudoku = []
+
+for(let i = 0; i < 9; i++) {
+    const tmp = []
+    for(let j = 0; j < 9; j++) {
+        tmp.push(0)
+    }
+    emptySudoku.push(tmp)
+}
+
+
+console.log(getResult(emptySudoku))
+

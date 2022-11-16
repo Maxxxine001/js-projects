@@ -36,6 +36,19 @@ function shuffleArray(array) {
 }
 
 
+function getResult(sudoku){
+    
+    let emptyCell = getFirstEmptyIndex[getSudokuCopy]
+
+    for( let i = 1; i <=9; i++){
+        if(isSudokuValid)
+        emptySudoku[emptyCell]= i
+        getResult(emptySudoku)
+    } 
+
+    return emptySudoku  
+}
+   
 
 function getFirstEmptyIndex(sudoku) {
     for( let i = 0; i < 9; i++){

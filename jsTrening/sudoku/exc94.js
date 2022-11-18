@@ -11,5 +11,22 @@
  * @return {number[]}
  */
  var inorderTraversal = function(root) {
-    
-};
+    let stack = []
+    let values = []
+
+    while( root !==null || stack.length !== 0){
+        while(root !== null) {
+            stack.push(root)
+            root = root.left
+        }
+
+        root = stack.pop()
+        values.push(root.val)
+        root = root.right
+
+    }
+
+    return values
+
+    }
+

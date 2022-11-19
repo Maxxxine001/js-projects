@@ -65,3 +65,56 @@ body {
     height: 60px;
     width: 60px;
 }
+
+.inputCell {
+    font-size: 24px;
+    border: none;
+    text-align: center;
+    width: 60px;
+}
+
+.inputCell:focus{
+    border: none;
+}
+
+.inputCell:focus:hover{
+    border: none;
+}
+
+.bottomButtons {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.checkButton {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+    background: hsl(215.38, 19.02%, 59.8%);
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 15px;
+    border-style: none;
+    border-width: 1px;
+}
+
+.hintButton {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+    background: hsl(215.38, 19.02%, 59.8%);
+    width: 100px;
+    height: 30px;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 15px;
+    border-style: none;
+    border-width: 1px;
+}
+
+.bottomInfo {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}

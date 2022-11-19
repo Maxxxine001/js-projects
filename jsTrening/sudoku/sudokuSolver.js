@@ -38,15 +38,71 @@ function shuffleArray(array) {
 
 function getResult(sudoku){
     
-    let emptyCell = getFirstEmptyIndex[getSudokuCopy]
+    const emptyCell = getFirstEmptyIndex(sudoku)
 
-    for( let i = 1; i <=9; i++){
-        if(isSudokuValid)
-        emptySudoku[emptyCell]= i
-        getResult(emptySudoku)
-    } 
+    if(emptyCell == null){
+        return isSudokuValid(sudoku) ? sudoku : null
+    }
 
-    return emptySudoku  
+    for( let i = 1; i <= 9; i++){
+        const sudokuCopy = getSudokuCopy(sudoku)
+        sudokuCopy[emptyCell.x][emptyCell.y] = i
+
+        if(isSudokuValid(sudokuCopy)){
+            const result = getResult(sudokuCopy)
+            
+            if(result !== null){
+                return result
+            }
+        } 
+    }
+    return null
+}
+
+function getRandomResult(sudoku) {
+    const emptyCell = getFirstEmptyIndex(sudoku)
+    
+    if(emptyCell == null){
+        return isSudokuValid(sudoku) ? sudoku : null
+    }
+    let order = [1,2,3,4,5,6,7,8,9]
+    shuffleArray(order)
+    for( let i = 0; i < 9; i++){
+        const sudokuCopy = getSudokuCopy(sudoku)
+        sudokuCopy[emptyCell.x][emptyCell.y] = order[i]
+
+        if(isSudokuValid(sudokuCopy)){
+            const result = getRandomResult(sudokuCopy)
+            
+            if(result !== null){
+                return result
+            }
+        } 
+    }
+    return null
+}
+
+function getNumberOfResults(sudoku){
+    
+    const emptyCell = getFirstEmptyIndex(sudoku)
+
+    if(emptyCell == null){
+        return isSudokuValid(sudoku) ? 1 : 0
+    }
+
+    let counter = 0
+    for( let i = 1; i <= 9; i++){
+        const sudokuCopy = getSudokuCopy(sudoku)
+        sudokuCopy[emptyCell.x][emptyCell.y] = i
+
+        if(isSudokuValid(sudokuCopy)){
+            const result = getNumberOfResults(sudokuCopy)
+            counter += result
+            if(counter >= 2)
+                return counter
+        } 
+    }
+    return counter
 }
    
 
@@ -54,7 +110,7 @@ function getFirstEmptyIndex(sudoku) {
     for( let i = 0; i < 9; i++){
         for( let j = 0; j < 9; j++ ){
             if( sudoku[i][j] == 0 ){
-                return [i, j]
+                return {x: i, y: j}
             } 
         }
     }
@@ -135,6 +191,49 @@ function isSudokuInValidFormat(sudoku) {
     return true
 }
 
+function randomMapGenerator(cellsToDelete){
+    const emptySudoku = []
+
+    for(let i = 0; i < 9; i++) {
+        const tmp = []
+        for(let j = 0; j < 9; j++) {
+            tmp.push(0)
+        }
+        emptySudoku.push(tmp)
+    }
+    let sudoku = getRandomResult(emptySudoku)
+
+
+    const indexes = []
+
+    for (let i = 0; i < 9; i++) {
+        for(let j = 0; j < 9; j++) {
+            indexes.push({x: i, y: j})
+        } 
+    }
+
+    shuffleArray(indexes)
+    let counter = 0
+
+    for(let i = 0; i < indexes.length; i++) {
+        const x = indexes[i].x
+        const y = indexes[i].y
+
+        const value = sudoku[x][y]
+        sudoku[x][y] = 0
+        if(getNumberOfResults(sudoku) == 1) {
+            counter++
+            if(counter == cellsToDelete)
+                return sudoku
+        } else {
+            sudoku[x][y] = value
+        }
+    }
+    
+    return randomMapGenerator(cellsToDelete)
+
+}
+
 let sudoku = [
     [0, 0, 7, 0, 0, 0, 0, 0, 5],
     [0, 4, 0, 0, 6, 1, 0, 3, 0],
@@ -147,16 +246,5 @@ let sudoku = [
     [9, 0, 1, 0, 0, 0, 0, 0, 2]
 ]
 
-const emptySudoku = []
-
-for(let i = 0; i < 9; i++) {
-    const tmp = []
-    for(let j = 0; j < 9; j++) {
-        tmp.push(0)
-    }
-    emptySudoku.push(tmp)
-}
-
-
-console.log(getResult(emptySudoku))
+printSudoku(randomMapGenerator(60))
 

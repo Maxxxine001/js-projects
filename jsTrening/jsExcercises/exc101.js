@@ -17,4 +17,6 @@
         return check(root.left) && check(root.right)
     }
     return check;
+
+    
 };

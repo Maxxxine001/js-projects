@@ -14,13 +14,13 @@
         <p>Choose difficulty level </p>
 
         <div class="menuButtons">
-            <button class="difButton buttonEasy" onclick="setEasyMode()">Easy</button>
-            <button class="difButton buttonMedium" onclick="setMediumMode()">Medium</button>
-            <button class="difButton buttonHard" onclick="setHardMode()">Hard</button>
+            <button class="difButton buttonEasy" onclick="loadMap(35)">Easy</button>
+            <button class="difButton buttonMedium" onclick="loadMap(42)">Medium</button>
+            <button class="difButton buttonHard" onclick="loadMap(50)">Hard</button>
         </div>
 
         <div class="gameBoard">
-            <table class="table">
+            <table class="table" id="table">
                 <tr class="cellBox">
                     <td class="cell" id="00"><input class="inputCell" type="text"/></td>
                     <td class="cell" id="01"><input class="inputCell" type="text"/></td>
@@ -124,7 +124,7 @@
 
         </div>
         <div class="bottomButtons">
-            <button class="checkButton">Check</button>
+            <button class="checkButton" onclick="checkSudoku()">Check</button>
             <button class="hintButton">Hint</button>
         </div>
         <div class="stats">

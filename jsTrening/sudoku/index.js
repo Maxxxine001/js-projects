@@ -1,18 +1,64 @@
 const gameDifficulties = {
-    easy: 0,
-    medium: 1,
-    hard: 2
+    easy: 40,
+    medium: 47,
+    hard: 55
 }
 
-let cellData = document.getElementById()
+
 let gameDifficulty = gameDifficulties.easy
+
+
+function getSudokuFromMap() {
+    const sudoku = []
+    let table = document.getElementById("table")
+    for(let i = 0; i < 9; i++) {
+        const tmp = []
+        for(let j = 0; j < 9; j++) {
+            let cell = table.rows[i].cells[j]
+            let value = cell.firstChild.value
+            if(value == '') {
+                tmp.push(0)
+            } else {
+                tmp.push(+value)
+            }
+
+        }
+        sudoku.push(tmp)
+    }
+    return sudoku
+}
+
+function checkSudoku() {
+    if(isSudokuValid(getSudokuFromMap())) {
+        alert('ok')
+    } else {
+        alert('chujowo')
+    }
+}
+
+function loadMap(difficulty) {
+    const sudoku = randomMapGenerator(difficulty)
+
+    for(let i = 0; i < 9; i++) {
+        for(let j = 0; j < 9; j++) {
+            let table = document.getElementById("table")
+            let cell = table.rows[i].cells[j]
+            if(sudoku[i][j] != 0) {
+                cell.firstChild.value = sudoku[i][j]
+                cell.firstChild.readOnly = true
+            }
+            else
+                cell.firstChild.value = null
+        }
+    }
+}
 
 function setEasyMode() {
     randomMapGenerator(40)
 
     for( let i = 0; i < 9; i++){
         for( let j = 0; j < 9; j++){
-            document.getElementById(`${i,j}`).innerHTML = `<img class="card" src="/cards/Playing Cards/SVG-cards-1.3/${strCard}_of_${strColor}.svg"> </img>`//
+            
         }
     }
 }

@@ -3,15 +3,28 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
     font-weight: bold;
     text-align: center;
-    font-size: 20px;
+    font-size: 30px;
+    background-size: cover;
+    background-image: url("photos/1168050.png");
 }
+
 .title {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
-    font-size: 40px;
+    font-size: 60px;
+    font-weight: 400;
+}
+
+.timer {
+    padding: 5px;
+    font-size: 30px;
+}
+.screen {
+    
+    display: flex;
+    flex-direction: row;
 }
 
 .menuButtons {
-    display: flex;
+    flex: 1;
     justify-content: center;
     flex-direction: row;
     gap: 10px;
@@ -19,36 +32,38 @@ body {
 
 .difButton {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
-    width: 100px;
-    height: 30px;
+    width: 180px;
+    height: 60px;
     padding: 5px;
-    font-size: 16px;
-    border-radius: 15px;
+    font-size: 30px;
+    border-radius: 30px;
     border-style: none;
     border-width: 1px;
 }
+    .difButton.easy {
+        background: hsl(25.38, 65.82%, 69.02%);
+    }
 
-.buttonEasy {
-    background: hsl(25.38, 65.82%, 69.02%);
-}
+    .difButton.medium {
+        background: hsl(22.39, 40.12%, 67.25%);
+    }
 
-.buttonMedium {
-    background: hsl(22.39, 40.12%, 67.25%);
-}
+    .difButton.hard {
+        background: hsl(215.38, 19.02%, 59.8%);
+    }
 
-.buttonHard {
-    background: hsl(215.38, 19.02%, 59.8%);
-}
 
 .gameBoard{
-    padding-top: 20px;
+    padding-top: 38px;
+    padding-left: 100px;
+    padding-bottom: 38px;
     display: flex;
     justify-content: center;
     
 }
 .table {
     border: solid;
-    border-color: black;
+    border-color: rgb(78, 77, 77);
     border-width: 2px; 
 }
 
@@ -62,24 +77,24 @@ body {
     border-style: solid;
     border-width: 1px;
     border-color: rgb(184, 177, 177);
-    height: 60px;
-    width: 60px;
+    height: 90px;
+    width: 90px;
 }
 
 .inputCell {
-    font-size: 24px;
+    font-size: 40px;
+    font-weight: 400;
     border: none;
     text-align: center;
     width: 60px;
 }
+    .inputCell:focus{
+        border: none;
+    }
 
-.inputCell:focus{
-    border: none;
-}
-
-.inputCell:focus:hover{
-    border: none;
-}
+    .inputCell:focus:hover{
+        border: none;
+    }
 
 .bottomButtons {
     padding-top: 20px;
@@ -88,33 +103,22 @@ body {
     flex-direction: row;
     gap: 10px;
 }
-
-.checkButton {
+ 
+.bottomButton {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
     background: hsl(215.38, 19.02%, 59.8%);
-    width: 100px;
-    height: 30px;
+    width: 180px;
+    height: 60px;
     padding: 5px;
-    font-size: 16px;
-    border-radius: 15px;
+    font-size: 30px;
+    border-radius: 30px;
     border-style: none;
     border-width: 1px;
 }
 
-.hintButton {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
-    background: hsl(215.38, 19.02%, 59.8%);
-    width: 100px;
-    height: 30px;
-    padding: 5px;
-    font-size: 16px;
-    border-radius: 15px;
-    border-style: none;
-    border-width: 1px;
-}
 
 .bottomInfo {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 30px;
+    
 }

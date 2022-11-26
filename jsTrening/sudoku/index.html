@@ -15,6 +15,32 @@
 
         <div class="screen">
             
+            <div class="menuButtons">
+                <p class="title">SUDOKU</p>
+                <p>Choose difficulty level </p>
+
+                <div class="top-buttons">
+                    <button class="difButton easy neon-button" id="easyButton" onclick="loadMap(37), displayLvl('Easy')" enabled>Easy</button>
+                    <button class="difButton medium neon-button" id="mediumButton" onclick="loadMap(43), displayLvl('Medium')" enabled>Medium</button>
+                    <button class="difButton hard neon-button" id="hardButton" onclick="loadMap(50), displayLvl('Hard')" enabled>Hard</button>
+                    
+                </div>
+            
+                <p id="difLvlInfo"></p>
+
+                <div class="bottomButtons">
+                    <button class="bottomButton check neon-button" onclick="checkSudoku()">Check</button>
+                    <button class="bottomButton hint neon-button" onclick="showHint()">Hint</button>
+                </div>
+                <div class="stats">
+                    <p class="bottomInfo" id="amountOfHintsLeft">You have Hints Left :</p>
+                </div>
+                <div class="timer">
+                    <label id="minutes">00</label>
+                    <label id="colon">:</label>
+                    <label id="seconds">00</label>
+                </div>
+            </div>
 
             <div class="gameBoard">
                 <table class="table" id="table">
@@ -123,28 +149,7 @@
 
             
 
-            <div class="menuButtons">
-                <p class="title">SUDOKU</p>
-                <p>Choose difficulty level </p>
-                <button class="difButton easy" id="easyButton" onclick="loadMap(37), displayLvl('Easy')" enabled>Easy</button>
-                <button class="difButton medium" id="mediumButton" onclick="loadMap(43), displayLvl('Medium')" enabled>Medium</button>
-                <button class="difButton hard" id="hardButton" onclick="loadMap(50), displayLvl('Hard')" enabled>Hard</button>
-                <p id="difLvlInfo"></p>
-                <div class="timer">
-                    <label id="minutes">00</label>
-                    <label id="colon">:</label>
-                    <label id="seconds">00</label>
-                </div>
             
-
-                <div class="bottomButtons">
-                    <button class="bottomButton check" onclick="checkSudoku()">Check</button>
-                    <button class="bottomButton hint" onclick="showHint()">Hint</button>
-                </div>
-                <div class="stats">
-                    <p class="bottomInfo" id="amountOfHintsLeft">You have Hints Left :</p>
-                </div>
-            </div>
         </div>
 
        

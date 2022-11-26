@@ -5,18 +5,20 @@ body {
     text-align: center;
     font-size: 30px;
     background-size: cover;
-    
 }
 
 .title {
     font-size: 60px;
     font-weight: 400;
+    color: var(--clr-neon);
 }
 
 .timer {
     padding: 5px;
     font-size: 30px;
+    
 }
+
 .screen {
     
     display: flex;
@@ -27,7 +29,18 @@ body {
     flex: 1;
     justify-content: center;
     flex-direction: row;
+    gap: 40px;
+    padding-bottom: 60px;
     gap: 10px;
+}
+
+.top-buttons {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 60px;
 }
 
 .difButton {
@@ -39,74 +52,84 @@ body {
     border-radius: 30px;
     border-style: none;
     border-width: 1px;
+    ;
 }
     .difButton.easy {
-        background: hsl(25.38, 65.82%, 69.02%);
+        background:  hsl(323 21% 16%);
     }
 
     .difButton.medium {
-        background: hsl(22.39, 40.12%, 67.25%);
+        background:  hsl(323 21% 16%);
     }
 
     .difButton.hard {
-        background: hsl(215.38, 19.02%, 59.8%);
+        background:  hsl(323 21% 16%);
     }
 
 
 .gameBoard{
     padding-top: 38px;
-    padding-left: 100px;
+    padding-right: 100px;
     padding-bottom: 38px;
     display: flex;
     justify-content: center;
     
 }
-.table {
-    border: solid;
-    border-color: rgb(78, 77, 77);
-    border-width: 2px; 
-}
 
-.cellBox {
-    border: 1px;
-    border-color: black;
-    border-style: solid;
-}
 
 .cell {
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(184, 177, 177);
     height: 90px;
     width: 90px;
+    border: var(--clr-neon) 0.125em solid;
 }
+
+.cell:hover {
+    border-color: hsl(226.03,48.34%,70.39%);
+    color: hsl(226.03,48.34%,70.39%);
+    
+}
+
 
 .inputCell {
     font-size: 40px;
+    color: hsl(317 100% 54%);;
     font-weight: 400;
     border: none;
     text-align: center;
     width: 60px;
+    background: none;
 }
-    .inputCell:focus{
-        border: none;
+    .inputCell:active{
+        border-color: hsl(226.03,48.34%,70.39%);
+        color: hsl(226.03,48.34%,70.39%);
+        outline: none;
+
     }
 
-    .inputCell:focus:hover{
-        border: none;
+    .inputCell:hover{
+        border-color: hsl(226.03,48.34%,70.39%);
+        color: hsl(226.03,48.34%,70.39%); 
+        outline: none;
+    }
+
+    .inputCell:focus{
+        border-color: hsl(226.03,48.34%,70.39%);
+        color: hsl(226.03,48.34%,70.39%); 
+        outline: none;
     }
 
 .bottomButtons {
-    padding-top: 20px;
+    padding-top: 60px;
+    padding-bottom: 60px;
     display: flex;
     justify-content: center;
     flex-direction: row;
-    gap: 10px;
+    gap: 60px;
 }
  
 .bottomButton {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
-    background: hsl(215.38, 19.02%, 59.8%);
+    background:  hsl(323 21% 16%);
     width: 180px;
     height: 60px;
     padding: 5px;
@@ -120,5 +143,80 @@ body {
 .bottomInfo {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
     font-size: 30px;
-    
 }
+
+
+:root {
+    --clr-neon: hsl(317 100% 54%);
+    --clr-bg: hsl(323 21% 16%);
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    min-height: 100vh;
+    background: var(--clr-bg);
+    color: var(--clr-neon);
+  }
+  
+  .neon-button {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--clr-neon);
+    border: var(--clr-neon) 0.125em solid;
+    padding: 0.25em 1em;
+    border-radius: 0.25em;
+  
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  
+    box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.7em 0 var(--clr-neon);
+  
+    position: relative;
+  }
+  
+  .neon-button::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    background: var(--clr-neon);
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  
+    transform: perspective(0.7em) rotateX(20deg) scale(0.9, 0.35);
+    filter: blur(0.7em);
+    opacity: 0.8;
+  }
+  
+  .neon-button::after {
+    content: "";
+    position: absolute;
+    box-shadow: 0 0 2em 0.5em var(--clr-neon);
+    opacity: 0;
+    background-color: var(--clr-neon);
+    z-index: -1;
+    transition: opacity 100ms linear;
+  }
+  
+  .neon-button:hover,
+  .neon-button:focus {
+    color: var(--clr-bg);
+    text-shadow: none;
+  }
+  
+  .neon-button:hover::before,
+  .neon-button:focus::before {
+    opacity: 1;
+  }
+  .neon-button:hover::after,
+  .neon-button:focus::after {
+    opacity: 1;
+  }
+  
+
+

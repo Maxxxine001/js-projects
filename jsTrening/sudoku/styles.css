@@ -219,4 +219,11 @@ body {
   }
   
 
-
+  th:hover::after,
+  thead th:not(:empty):hover::after,
+  th:focus::after,
+  thead th:not(:empty):focus::after { 
+    border-color: hsl(226.03,48.34%,70.39%);
+    color: hsl(226.03,48.34%,70.39%); 
+    outline: none;
+}

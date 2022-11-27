@@ -8,6 +8,62 @@ const gameDifficulties = {
 let gameDifficulty = gameDifficulties.easy
 var currentSolution = null
 var currentTimer = null
+
+
+let table = document.getElementById("table")
+
+for(let i = 0; i < 9; i++) {
+    for(let j = 0; j < 9; j++) {
+        let cell = table.rows[i].cells[j]
+        cell.onfocus = (event) => {
+            console.log('here')
+        }
+        cell.addEventListener('active', (event) => {
+            console.log('here')
+        })
+    }
+}
+
+
+function toBeNamed(coordinates) {
+    const ans = []
+    
+    const xStart = Math.floor(coordinates.x / 3) * 3
+    const yStart = Math.floor(coordinates.y / 3) * 3
+    
+
+
+    for(let i = 0; i < 9; i++) {
+        ans.push({x: i, y: coordinates.y})
+        ans.push({x: coordinates.x, y: i})
+        ans.push({x: xStart + i % 3, y: yStart + Math.floor(i / 3)})
+    }
+    console.log(coordinates)
+    return ans
+}
+
+function selectElement(element) {
+    let coordinates = {x: +element.id.substring(0, 1), y: +element.id.substring(1)}
+
+    coordinatesToSelect = toBeNamed(coordinates)
+ 
+    for(const chujSePoprawisz of coordinatesToSelect) {
+        const cell = document.getElementById('' + chujSePoprawisz.x + chujSePoprawisz.y)
+        cell.classList.add('selected')
+    }
+}
+
+function unselectElement(element) {
+    let coordinates = {x: +element.id.substring(0, 1), y: +element.id.substring(1)}
+
+    coordinatesToSelect = toBeNamed(coordinates)
+ 
+    for(const chujSePoprawisz of coordinatesToSelect) {
+        const cell = document.getElementById('' + chujSePoprawisz.x + chujSePoprawisz.y)
+        cell.classList.remove('selected')
+    }
+}
+
 function timer(){
 
     var minutesLabel = document.getElementById("minutes");
@@ -70,9 +126,11 @@ function getSudokuFromMap() {
 
 function checkSudoku() {
     
-    if( getFirstEmptyIndex != null){
+
+    const sudoku = getSudokuFromMap()
+    if( getFirstEmptyIndex(sudoku) != null){
         alert('sudoku nie jest skończone')
-    } else if(isSudokuValid(getSudokuFromMap())) {
+    } else if(isSudokuValid(sudoku)) {
          alert('ok')
     } else {
         alert('chujowo')

@@ -68,25 +68,47 @@ body {
 
 
 .gameBoard{
-    padding-top: 38px;
+    padding-top: 30px;
     padding-right: 100px;
-    padding-bottom: 38px;
     display: flex;
     justify-content: center;
     
+    
 }
+
+table {
+    border-spacing: 3px 3px;
+}
+td {
+    
+}
+
+td:nth-of-type(3n) {    
+    border-right: 4px solid black;
+}
+
+tr:nth-of-type(3n) td {    
+    border-bottom: 4px solid black;
+}
+
 
 
 .cell {
     height: 90px;
     width: 90px;
-    border: var(--clr-neon) 0.125em solid;
+    
+    border: var(--clr-neon)  solid;
 }
 
 .cell:hover {
     border-color: hsl(226.03,48.34%,70.39%);
     color: hsl(226.03,48.34%,70.39%);
     
+}
+
+.cell.selected {
+    border-color: hsl(226.03,48.34%,70.39%);
+    color: hsl(226.03,48.34%,70.39%);
 }
 
 
@@ -99,24 +121,26 @@ body {
     width: 60px;
     background: none;
 }
-    .inputCell:active{
+    .inputCell:active {
         border-color: hsl(226.03,48.34%,70.39%);
         color: hsl(226.03,48.34%,70.39%);
         outline: none;
 
     }
 
-    .inputCell:hover{
+    .inputCell:hover {
         border-color: hsl(226.03,48.34%,70.39%);
         color: hsl(226.03,48.34%,70.39%); 
         outline: none;
     }
 
-    .inputCell:focus{
+    .inputCell:focus {
         border-color: hsl(226.03,48.34%,70.39%);
         color: hsl(226.03,48.34%,70.39%); 
         outline: none;
     }
+
+
 
 .bottomButtons {
     padding-top: 60px;
@@ -227,3 +251,4 @@ body {
     color: hsl(226.03,48.34%,70.39%); 
     outline: none;
 }
+

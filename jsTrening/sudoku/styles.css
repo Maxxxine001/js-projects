@@ -73,48 +73,74 @@ body {
     display: flex;
     justify-content: center;
     
-    
 }
 
 table {
-    border-spacing: 3px 3px;
+    border-spacing: 0;
+    box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.7em 0 var(--clr-neon);
+    padding: 4px;
+    background-color: hsl(320, 21%, 20%);
 }
-td {
+
+td:nth-of-type(3) {    
+    border-right: 2px solid hsl(317 100% 54%);
+    
     
 }
-
-td:nth-of-type(3n) {    
-    border-right: 4px solid black;
+td:nth-of-type(4) {    
+    border-left: 2px solid hsl(317 100% 54%);
 }
 
-tr:nth-of-type(3n) td {    
-    border-bottom: 4px solid black;
+td:nth-of-type(6) {    
+    border-right: 2px solid hsl(317 100% 54%);
+    
+}
+td:nth-of-type(7) {    
+    border-left: 2px solid hsl(317 100% 54%);
 }
 
+tr:nth-of-type(3) td {    
+    border-bottom: 2px solid hsl(317 100% 54%);
+}
 
+tr:nth-of-type(4) td {    
+    border-top: 2px solid hsl(317 100% 54%);
+}
+
+tr:nth-of-type(6) td {    
+    border-bottom: 2px solid hsl(317 100% 54%);
+}
+
+tr:nth-of-type(7) td {    
+    border-top: 2px solid hsl(317 100% 54%);
+}
 
 .cell {
     height: 90px;
     width: 90px;
-    
-    border: var(--clr-neon)  solid;
+    border: solid black 1px
 }
 
 .cell:hover {
     border-color: hsl(226.03,48.34%,70.39%);
     color: hsl(226.03,48.34%,70.39%);
+    border-width: 2px;
+    box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.7em 0 var(--clr-neon);
+    
     
 }
 
 .cell.selected {
     border-color: hsl(226.03,48.34%,70.39%);
     color: hsl(226.03,48.34%,70.39%);
+    border-width: 2px;
+    box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.7em 0 var(--clr-neon);
 }
 
 
 .inputCell {
     font-size: 40px;
-    color: hsl(317 100% 54%);;
+    color: hsl(317 100% 54%);
     font-weight: 400;
     border: none;
     text-align: center;
@@ -139,8 +165,6 @@ tr:nth-of-type(3n) td {
         color: hsl(226.03,48.34%,70.39%); 
         outline: none;
     }
-
-
 
 .bottomButtons {
     padding-top: 60px;
@@ -243,12 +267,4 @@ tr:nth-of-type(3n) td {
   }
   
 
-  th:hover::after,
-  thead th:not(:empty):hover::after,
-  th:focus::after,
-  thead th:not(:empty):focus::after { 
-    border-color: hsl(226.03,48.34%,70.39%);
-    color: hsl(226.03,48.34%,70.39%); 
-    outline: none;
-}
 

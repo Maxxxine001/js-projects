@@ -22,7 +22,7 @@
                 <div class="top-buttons">
                     <button class="difButton easy neon-button" id="easyButton" onclick="loadMap(37), displayLvl('Easy')" enabled>Easy</button>
                     <button class="difButton medium neon-button" id="mediumButton" onclick="loadMap(43), displayLvl('Medium')" enabled>Medium</button>
-                    <button class="difButton hard neon-button" id="hardButton" onclick="loadMap(57), displayLvl('Hard')" enabled>Hard</button>
+                    <button class="difButton hard neon-button" id="hardButton" onclick="loadMap(53), displayLvl('Hard')" enabled>Hard</button>
                     
                 </div>
             
@@ -39,6 +39,44 @@
                     <label id="minutes">00</label>
                     <label id="colon">:</label>
                     <label id="seconds">00</label>
+                </div>
+
+                <button class="new-game-button neon-button" id="newGameButton" onclick="showMessageWindow()">New Game</button>
+
+                <div id="messageWindow" class="message-window">
+                    <p>Do you want to start a new game? You will loose all your progress</p>
+                    <button class="neon-button yes-no-button" onclick="activateNewGame()">Yes</button>
+                    <button class="neon-button yes-no-button" onclick="backToTheGame()">No</button>
+                </div>
+
+                <div id="messageWindow2" class="message-window">
+                    <p>Choose game difficulty</p>
+                    <button id="okButton" class="neon-button yes-no-button" onclick="closeMessageWindow()">Ok</button>
+
+                </div>
+
+                <div id="messageWindow3" class="message-window">
+                    <p>You've Won !!!</p>
+                    <p>congrats !!!</p>
+                    <button id="okButton" class="neon-button yes-no-button" onclick="closeMessageWindow()">Ok</button>
+
+                </div>
+
+                <div id="messageWindow4" class="message-window">
+                    <p>Sudoku is wrong :(</p>
+                    <button id="okButton" class="neon-button yes-no-button" onclick="closeMessageWindow()">Ok</button>
+                </div>
+
+                <div id="messageWindow5" class="message-window">
+                    <p>Sudoku isn't finished</p>
+                    <button id="okButton" class="neon-button yes-no-button" onclick="closeMessageWindow()">Ok</button>
+
+                </div>
+
+                <div id="messageWindow6" class="message-window">
+                    <p>You are out of hints :/</p>
+                    <button id="okButton" class="neon-button yes-no-button" onclick="closeMessageWindow()">Ok</button>
+
                 </div>
             </div>
 

@@ -117,23 +117,62 @@ function getSudokuFromMap() {
 }
 
 
- function inputCheck(){
-  
- 
- }
+function showMessageWindow() {
+    document.getElementById('messageWindow').style.display = "block"
+    console.log("x")
+}
 
+function backToTheGame(){
+    document.getElementById('messageWindow').style.display = "none"
+    console.log("y")
+}
 
+function closeMessageWindow(){
+    document.getElementById('messageWindow2').style.display = "none"
+    document.getElementById('messageWindow3').style.display = "none"
+    document.getElementById('messageWindow4').style.display = "none"
+    document.getElementById('messageWindow5').style.display = "none"
+    document.getElementById('messageWindow6').style.display = "none"
+}
+
+function activateDifficultyButtons() {
+    const easyBut = document.getElementById("easyButton")
+    const mediumBut = document.getElementById("mediumButton")
+    const hardBut = document.getElementById("hardButton")
+    easyBut.disabled = false
+    mediumBut.disabled = false
+    hardBut.disabled = false
+}
+
+function desactivateDifficultyButtons() {
+    const easyBut = document.getElementById("easyButton")
+    const mediumBut = document.getElementById("mediumButton")
+    const hardBut = document.getElementById("hardButton")
+    easyBut.disabled = true
+    mediumBut.disabled = true
+    hardBut.disabled = true
+}
+
+function activateNewGame(){
+    
+    activateDifficultyButtons()
+
+    document.getElementById('messageWindow').style.display = "none"
+
+    document.getElementById('messageWindow2').style.display = "block"
+}
 
 function checkSudoku() {
     
-
     const sudoku = getSudokuFromMap()
     if( getFirstEmptyIndex(sudoku) != null){
-        alert('sudoku nie jest skończone')
+        document.getElementById('messageWindow5').style.display = "block"
+        
     } else if(isSudokuValid(sudoku)) {
-         alert('ok')
+        document.getElementById('messageWindow3').style.display = "block"
+        activateDifficultyButtons()
     } else {
-        alert('chujowo')
+        document.getElementById('messageWindow4').style.display = "block"
     }
         
 }
@@ -141,14 +180,10 @@ function checkSudoku() {
 function displayLvl(mode){
     timer()
     let message = document.getElementById("difLvlInfo")
-    message.textContent = `You choose ${mode} mode`
+    message.textContent = `You chose ${mode} mode`
     const numberOfHints = {'Easy': 10, 'Medium': 5, 'Hard': 0}
-    const easyBut = document.getElementById("easyButton")
-    const mediumBut = document.getElementById("mediumButton")
-    const hardBut = document.getElementById("hardButton")
-    easyBut.disabled = true
-    mediumBut.disabled = true
-    hardBut.disabled = true
+    desactivateDifficultyButtons()
+
 }
 
 
@@ -179,8 +214,10 @@ function showHint() {
         cell.firstChild.value = solution[randomEmptyCell.x][randomEmptyCell.y]
         cell.firstChild.readOnly = true
     } else {
-        alert("brak dostępnych wskazówek")
+        document.getElementById('messageWindow6').style.display = "block"
     }
+
+    
 }
 
 function loadMap(difficulty) {
@@ -205,6 +242,7 @@ function loadMap(difficulty) {
                 
         }
     }
+    
 }
 
 

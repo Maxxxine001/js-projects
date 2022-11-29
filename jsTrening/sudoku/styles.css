@@ -151,12 +151,13 @@ tr:nth-of-type(7) td {
     text-align: center;
     width: 90px;
     height: 90px;
+    caret-color: transparent;
     background: none;
 }
     .inputCell:active {
         border-color: hsl(226.03,48.34%,70.39%);
         color: hsl(226.03,48.34%,70.39%);
-        outline: none;
+        
 
     }
 
@@ -164,12 +165,14 @@ tr:nth-of-type(7) td {
         border-color: hsl(226.03,48.34%,70.39%);
         color: hsl(226.03,48.34%,70.39%); 
         outline: none;
+        box-shadow: inset 0 0 0.4em 0 var(--clr-neon), 0 0 1em 0 var(--clr-neon);
     }
 
     .inputCell:focus {
         border-color: hsl(226.03,48.34%,70.39%);
         color: hsl(226.03,48.34%,70.39%); 
         outline: none;
+        
     }
 
 .bottomButtons {
@@ -259,7 +262,6 @@ tr:nth-of-type(7) td {
   
   .neon-button:hover,
   .neon-button:focus {
-    color: var(--clr-bg);
     text-shadow: none;
   }
   

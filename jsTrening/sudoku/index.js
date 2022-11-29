@@ -12,17 +12,17 @@ var currentTimer = null
 
 let table = document.getElementById("table")
 
-for(let i = 0; i < 9; i++) {
-    for(let j = 0; j < 9; j++) {
-        let cell = table.rows[i].cells[j]
-        cell.onfocus = (event) => {
-            console.log('here')
-        }
-        cell.addEventListener('active', (event) => {
-            console.log('here')
-        })
+function inputCheck(inputEl, event) {
+
+    if(event.key.charCodeAt(0) >= '1'.charCodeAt(0) && event.key.charCodeAt(0) <= '9'.charCodeAt(0)) {
+        inputEl.value = event.key
+        
+    } else {
+        inputEl.value = ''
     }
+    event.preventDefault();
 }
+
 
 
 function toBeNamed(coordinates) {
@@ -38,7 +38,6 @@ function toBeNamed(coordinates) {
         ans.push({x: coordinates.x, y: i})
         ans.push({x: xStart + i % 3, y: yStart + Math.floor(i / 3)})
     }
-    console.log(coordinates)
     return ans
 }
 
@@ -81,7 +80,7 @@ function timer(){
         secondsLabel.innerHTML = pad(totalSeconds%60);
         minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
     }
-
+        
     function pad(val)
     {
         var valString = val + "";
@@ -119,12 +118,10 @@ function getSudokuFromMap() {
 
 function showMessageWindow() {
     document.getElementById('messageWindow').style.display = "block"
-    console.log("x")
 }
 
 function backToTheGame(){
     document.getElementById('messageWindow').style.display = "none"
-    console.log("y")
 }
 
 function closeMessageWindow(){
@@ -133,6 +130,8 @@ function closeMessageWindow(){
     document.getElementById('messageWindow4').style.display = "none"
     document.getElementById('messageWindow5').style.display = "none"
     document.getElementById('messageWindow6').style.display = "none"
+    document.getElementById('messageWindow7').style.display = "none"
+
 }
 
 function activateDifficultyButtons() {
@@ -158,8 +157,9 @@ function activateNewGame(){
     activateDifficultyButtons()
 
     document.getElementById('messageWindow').style.display = "none"
-
+    
     document.getElementById('messageWindow2').style.display = "block"
+    
 }
 
 function checkSudoku() {
@@ -566,8 +566,4 @@ function getRandomMap(cellsToDelete){
     return getRandomMap(cellsToDelete)
 
 }
-
-
-
-
 

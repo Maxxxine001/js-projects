@@ -3,12 +3,19 @@
  * @return {number}
  */
  var singleNumber = function(nums) {
-
-    let number
-
-    for (let i = 0; i < nums.length; i++) {
-        number ^= nums[i]
+    const count = {}
+    
+    for(const num of nums) {
+        if(count[num] == undefined) {
+            count[num] = 1
+        } else {
+            count[num]++
+        }
     }
-
-    return number
+    
+    for(const key of Object.keys(count)) {
+        if(count[key] == 1) {
+            return key
+        }
+    }
 };
